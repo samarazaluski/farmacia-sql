@@ -141,3 +141,81 @@ INNER JOIN Medicamentos
 
 -- Mostrar as tabelas existentes
 SHOW TABLES;
+
+-- Mostrar idade cliente 
+USE farmacia;
+SELECT *
+FROM CLIENTES
+WHERE IDADE >50;
+
+-- MOSTRAR MEDICAMNETO QUE CUSTAM MENOS DE 20,00
+
+SELECT *
+FROM MEDICAMENTOS
+WHERE PRECO <20;
+
+
+-- Mostrar nome e preço 
+
+SELECT nome, preco
+FROM Medicamentos
+WHERE preco < 20;
+
+-- Organizando os resultados PREÇO
+
+SELECT nome, preco
+FROM Medicamentos
+ORDER BY preco DESC;
+
+-- Organizando os resultados NOMES
+SELECT nome
+FROM Clientes
+ORDER BY nome;
+
+-- Juntando WHERE + ORDER BY
+SELECT nome, preco
+FROM Medicamentos
+WHERE preco < 30
+ORDER BY preco;
+
+
+-- Quantos CLIENTES temos cadastrados COUNT()
+
+SELECT count(*)
+FROM CLIENTES;
+
+-- Quantos MEDICAMENTOS temos cadastrados COUNT()
+
+SELECT COUNT(*)
+FROM Medicamentos;
+
+-- Quantas VENDAS COUNT()
+
+SELECT COUNT(*)
+FROM Vendas;
+
+-- Quantos CLIENTES têm mais de 40 anos
+
+SELECT COUNT(*)
+FROM Clientes
+WHERE idade > 40;
+
+
+-- SUM + WHERE
+-- Qual foi o valor das vendas do dia 01/07/2026?
+
+SELECT SUM(total)
+FROM Vendas
+WHERE data_venda = '2026-07-01';
+
+-- AVG
+
+SELECT AVG(PRECO)
+FROM Medicamentos;
+
+-- AVG + WHERE
+-- Qual é a média dos medicamentos da EMS
+
+SELECT avg(PRECO)
+FROM MEDICAMENTOS
+WHERE FABRICANTE = 'EMS';
